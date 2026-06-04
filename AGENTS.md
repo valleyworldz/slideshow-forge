@@ -1,5 +1,7 @@
 # Slideshow Forge — Agent integration
 
+> **Tag:** `[API]` `[META]` · **Authority:** [docs/SOURCE_OF_TRUTH.md](./docs/SOURCE_OF_TRUTH.md)
+
 Use the **CLI with `--json`** for all automated workflows.
 
 ## Prerequisites
@@ -11,11 +13,21 @@ npm run cli -- doctor --json
 
 Ensure `data.ok === true` and FFmpeg is installed before MP4 exports.
 
+## Documentation for agents
+
+| Doc | Use when |
+|-----|----------|
+| [SOURCE_OF_TRUTH.md](./docs/SOURCE_OF_TRUTH.md) | Resolving contradictions |
+| [E2E_MAP.md](./E2E_MAP.md) | Understanding full pipeline |
+| [PIPELINE.md](./docs/PIPELINE.md) | Export stage details |
+| [METADATA_CONVENTIONS.md](./docs/METADATA_CONVENTIONS.md) | Reading `@meta` blocks in source |
+
 ## Elite approval
 
 ```bash
 npm run test:production      # lint + 25-step E2E + elite gate
 npm run elite:approve        # standard gate (exit 0 = approved)
+npm run audit:consistency    # doc/version sync
 npm run elite:approve:full   # includes full 188-photo export (~30+ min)
 ```
 
@@ -89,3 +101,4 @@ output/
 - Rely on mock MP4 blobs (removed in v3)
 - Commit user photos or API keys
 - Assume USB direct write from browser (user copies ZIP/folder manually)
+- Contradict [SOURCE_OF_TRUTH.md](./docs/SOURCE_OF_TRUTH.md) without updating it first

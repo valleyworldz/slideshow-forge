@@ -1,6 +1,18 @@
 /**
  * @license
  * SPDX-License-Identifier: Apache-2.0
+ *
+ * ═══════════════════════════════════════════════════════════════════════════
+ * @meta SLIDESHOW FORGE — [IO] FFmpeg MP4 Encoder
+ * ───────────────────────────────────────────────────────────────────────────
+ * @file     ffmpeg.ts
+ * @purpose  Detect FFmpeg on PATH; render H.264/AAC slideshow MP4
+ * @layer    IO
+ * @depends  types (SlideshowPreset)
+ * @consumers exporter.node, doctor.node, e2e
+ * @status   ELITE ✅
+ * @see      docs/PIPELINE.md § Stage 5
+ * ═══════════════════════════════════════════════════════════════════════════
  */
 
 import { spawn } from "node:child_process";

@@ -1,5 +1,7 @@
 # Elite Approval — Slideshow Forge v3.0.0
 
+> **Tag:** `[ELITE]` `[GATE]` · **Scorecard:** [docs/SCORECARD.md](./docs/SCORECARD.md)
+
 **Status:** ✅ **APPROVED** (gate passed — `npm run elite:approve`)
 
 | Gate | Result |
@@ -7,7 +9,8 @@
 | Workspace `photos for use` | ✅ |
 | FFmpeg + Sharp | ✅ |
 | Electron + Web + CLI builds | ✅ |
-| E2E (subset 8 + MP4 + both) | ✅ 8/8 |
+| E2E (25 checks, subset + MP4 + both) | ✅ |
+| Consistency audit | ✅ `npm run audit:consistency` |
 
 Re-verify anytime: `npm run elite:approve`  
 Full 188-photo stress test: `npm run elite:approve:full`
@@ -23,12 +26,16 @@ Full 188-photo stress test: `npm run elite:approve:full`
 | **Export** | Real JPEG normalize (Sharp), real H.264 (FFmpeg) | ✅ |
 | **EXIF** | Orientation + dates via exifr | ✅ |
 | **E2E** | Automated against workspace photos | ✅ |
+| **Docs** | SOURCE_OF_TRUTH + maps + scorecard | ✅ |
 
 ## Elite workflow
 
 ```bash
 # One-command approval (doctor + build + e2e)
 npm run elite:approve
+
+# Doc/version consistency
+npm run audit:consistency
 
 # Daily use (desktop)
 npm run electron:dev
@@ -58,6 +65,8 @@ output/Samsung_Slideshows/Elite_Slideshow/
 - Direct USB write without user picking folder (Electron: user selects drive)
 - Cloud upload / Gemini (removed in v3)
 - Mock MP4 or fake USB drives (removed in v3)
+
+See also: [docs/KANBAN_TRACKER.md](./docs/KANBAN_TRACKER.md) · [GitHub Issue #1](https://github.com/valleyworldz/slideshow-forge/issues/1)
 
 ---
 

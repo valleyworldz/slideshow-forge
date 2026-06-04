@@ -1,6 +1,18 @@
 /**
  * @license
  * SPDX-License-Identifier: Apache-2.0
+ *
+ * ═══════════════════════════════════════════════════════════════════════════
+ * @meta SLIDESHOW FORGE — [CORE] App Constants
+ * ───────────────────────────────────────────────────────────────────────────
+ * @file     constants.ts
+ * @purpose  APP_VERSION, APP_NAME — must sync with package.json + metadata.json
+ * @layer    CORE
+ * @depends  none
+ * @consumers all layers, consistency-audit
+ * @status   ELITE ✅
+ * @see      docs/METADATA_CONVENTIONS.md § Version Sync
+ * ═══════════════════════════════════════════════════════════════════════════
  */
 
 export const APP_VERSION = "3.0.0";

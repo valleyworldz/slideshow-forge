@@ -1,0 +1,60 @@
+name: Scope Lock
+description: Lock scope, phases, and acceptance criteria for a release or epic
+title: "[SCOPE LOCK] "
+labels: ["phase-1-docs", "elite-gate"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Scope Lock Issue
+        Use this template to freeze scope, phases, and acceptance criteria.
+        Authority: [docs/SOURCE_OF_TRUTH.md](../docs/SOURCE_OF_TRUTH.md)
+
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope (in / out)
+      description: What is included and explicitly excluded
+      placeholder: |
+        IN: Export pipeline, Electron, CLI JSON, E2E 25 checks
+        OUT: Cloud upload, mock MP4, silent USB write
+    validations:
+      required: true
+
+  - type: textarea
+    id: phases
+    attributes:
+      label: Phases
+      description: Numbered phases with deliverables
+      placeholder: |
+        Phase 0: Foundation (DONE)
+        Phase 1: Documentation elite
+        Phase 2: CI hardening
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance Criteria
+      description: Measurable exit conditions
+      placeholder: |
+        - npm run elite:approve exit 0
+        - npm run audit:consistency exit 0
+        - All docs linked from SOURCE_OF_TRUTH
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: gates
+    attributes:
+      label: Quality Gates
+      options:
+        - label: lint (tsc --noEmit)
+          required: true
+        - label: test:e2e (25/25)
+          required: true
+        - label: elite:approve
+          required: true
+        - label: audit:consistency
+          required: true

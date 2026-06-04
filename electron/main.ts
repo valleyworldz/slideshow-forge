@@ -1,6 +1,18 @@
 /**
  * @license
  * SPDX-License-Identifier: Apache-2.0
+ *
+ * ═══════════════════════════════════════════════════════════════════════════
+ * @meta SLIDESHOW FORGE — [IPC] Electron Main Process
+ * ───────────────────────────────────────────────────────────────────────────
+ * @file     main.ts
+ * @purpose  BrowserWindow, IPC handlers (scan, export, workspace, dialogs)
+ * @layer    IPC
+ * @depends  exporter.node, scanner.node, workspace, doctor
+ * @consumers preload.ts → bridge/electron.ts → React App
+ * @status   ELITE ✅
+ * @see      FLOW_MAP.md § Electron IPC Flow
+ * ═══════════════════════════════════════════════════════════════════════════
  */
 
 import { app, BrowserWindow, ipcMain, dialog, shell, session } from "electron";

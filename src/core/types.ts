@@ -1,6 +1,18 @@
 /**
  * @license
  * SPDX-License-Identifier: Apache-2.0
+ *
+ * ═══════════════════════════════════════════════════════════════════════════
+ * @meta SLIDESHOW FORGE — [CORE] Canonical Types
+ * ───────────────────────────────────────────────────────────────────────────
+ * @file     types.ts
+ * @purpose  Shared TypeScript contracts (PhotoAsset, ExportManifest, CLI JSON)
+ * @layer    CORE
+ * @depends  none
+ * @consumers all layers
+ * @status   ELITE ✅
+ * @see      docs/ARCHITECTURE_QUALITY_GUIDE.md § Core Module Responsibilities
+ * ═══════════════════════════════════════════════════════════════════════════
  */
 
 export type PhotoStatus = "ready" | "unsupported" | "duplicate" | "error";

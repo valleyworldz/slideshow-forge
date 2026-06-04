@@ -1,5 +1,29 @@
 {
   "name": "Slideshow Forge",
   "description": "Convert photo folders into Samsung TV–ready USB slideshows (JPEG folders and H.264 MP4). Includes CLI with JSON output for AI agents.",
-  "version": "3.0.0"
+  "version": "3.0.0",
+  "documentation": {
+    "sourceOfTruth": "docs/SOURCE_OF_TRUTH.md",
+    "e2eMap": "E2E_MAP.md",
+    "flowMap": "FLOW_MAP.md",
+    "scorecard": "docs/SCORECARD.md",
+    "kanban": "docs/KANBAN_TRACKER.md"
+  },
+  "quality": {
+    "compositeScore": 10.3,
+    "eliteGate": "npm run elite:approve",
+    "consistencyAudit": "npm run audit:consistency",
+    "e2eChecks": 25
+  },
+  "tags": {
+    "ELITE": "production approved",
+    "CORE": "domain logic",
+    "UI": "React presentation",
+    "IPC": "Electron",
+    "IO": "Sharp FFmpeg disk",
+    "API": "CLI HTTP",
+    "GATE": "tests audits",
+    "META": "documentation",
+    "WORKSPACE": "photos for use"
+  }
 }

@@ -3,6 +3,18 @@
  * @license
  * SPDX-License-Identifier: Apache-2.0
  *
+ * ═══════════════════════════════════════════════════════════════════════════
+ * @meta SLIDESHOW FORGE — [API] CLI Entry
+ * ───────────────────────────────────────────────────────────────────────────
+ * @file     cli/index.ts
+ * @purpose  Commander CLI with --json for AI agents and automation
+ * @layer    API
+ * @depends  exporter.node, scanner.node, workspace, doctor
+ * @consumers npm run cli, slideshow-forge bin, e2e
+ * @status   ELITE ✅
+ * @see      AGENTS.md
+ * ═══════════════════════════════════════════════════════════════════════════
+ *
  * Slideshow Forge CLI — machine-readable JSON for AI agents and humans.
  */
 

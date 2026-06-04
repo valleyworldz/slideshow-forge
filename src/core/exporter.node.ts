@@ -1,6 +1,18 @@
 /**
  * @license
  * SPDX-License-Identifier: Apache-2.0
+ *
+ * ═══════════════════════════════════════════════════════════════════════════
+ * @meta SLIDESHOW FORGE — [IO] Export Orchestrator
+ * ───────────────────────────────────────────────────────────────────────────
+ * @file     exporter.node.ts
+ * @purpose  Single entry for disk export: JPEG normalize → MP4 → manifest
+ * @layer    IO
+ * @depends  processor.node, ffmpeg, manifest, cardFormat
+ * @consumers cli/index, electron/main, server/index
+ * @status   ELITE ✅
+ * @see      docs/PIPELINE.md
+ * ═══════════════════════════════════════════════════════════════════════════
  */
 
 import { copyFile, mkdir, rm, writeFile } from "node:fs/promises";

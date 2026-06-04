@@ -1,6 +1,18 @@
 /**
  * @license
  * SPDX-License-Identifier: Apache-2.0
+ *
+ * ═══════════════════════════════════════════════════════════════════════════
+ * @meta SLIDESHOW FORGE — [CORE] Per-Card Format Logic
+ * ───────────────────────────────────────────────────────────────────────────
+ * @file     cardFormat.ts
+ * @purpose  Resolve frame, aspect, duration per photo; bulk patch helpers
+ * @layer    CORE
+ * @depends  types
+ * @consumers ReviewPanel, exporter.node, processor.*, e2e
+ * @status   ELITE ✅
+ * @see      docs/ARCHITECTURE_QUALITY_GUIDE.md
+ * ═══════════════════════════════════════════════════════════════════════════
  */
 
 import type {

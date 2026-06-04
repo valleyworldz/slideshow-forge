@@ -1,4 +1,16 @@
 /**
+ * ═══════════════════════════════════════════════════════════════════════════
+ * @meta SLIDESHOW FORGE — [GATE] Production E2E
+ * ───────────────────────────────────────────────────────────────────────────
+ * @file     e2e.ts
+ * @purpose  25 automated checks across export, CLI, API, card format
+ * @layer    GATE
+ * @depends  exporter.node, server, cli paths, workspace
+ * @consumers npm run test:e2e, elite-check
+ * @status   ELITE ✅
+ * @see      E2E_MAP.md
+ * ═══════════════════════════════════════════════════════════════════════════
+ *
  * Production E2E — validates every export path for personal use.
  * Default: fast subset (~8 photos). Full 188-photo run: E2E_FULL=1
  * Run: npm run test:e2e | npm run test:e2e:full

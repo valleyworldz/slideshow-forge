@@ -1,4 +1,16 @@
 /**
+ * ═══════════════════════════════════════════════════════════════════════════
+ * @meta SLIDESHOW FORGE — [GATE] Elite Approval
+ * ───────────────────────────────────────────────────────────────────────────
+ * @file     elite-check.ts
+ * @purpose  7-gate release approval: doctor, builds, workspace, e2e
+ * @layer    GATE
+ * @depends  doctor.node, workspace, npm scripts
+ * @consumers npm run elite:approve
+ * @status   ELITE ✅
+ * @see      ELITE_APPROVED.md
+ * ═══════════════════════════════════════════════════════════════════════════
+ *
  * Elite approval gate — run before release or after major changes.
  * npm run elite:approve
  */

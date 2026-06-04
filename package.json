@@ -31,6 +31,7 @@
     "electron:start": "vite build --mode electron && npm run build:electron && electron .",
     "elite:approve": "tsx scripts/elite-check.ts",
     "elite:approve:full": "cross-env E2E_FULL=1 tsx scripts/elite-check.ts",
+    "audit:consistency": "tsx scripts/consistency-audit.ts",
     "clean": "node -e \"import('fs').then(fs=>{try{fs.rmSync('dist',{recursive:true})}catch(e){}})\""
   },
   "dependencies": {
