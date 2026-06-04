@@ -1,0 +1,5 @@
+{
+  "name": "Slideshow Forge",
+  "description": "Convert photo folders into Samsung TV–ready USB slideshows (JPEG folders and H.264 MP4). Includes CLI with JSON output for AI agents.",
+  "version": "3.0.0"
+}
