@@ -71,11 +71,11 @@
 
 | ID | Task | Status |
 |----|------|--------|
-| P4-1 | Git tag `v3.1.0` on GitHub | TODO |
-| P4-2 | GitHub Release from CHANGELOG | TODO |
-| P4-3 | Branch protection + Elite CI required | TODO |
-| P4-4 | electron-builder Windows `.exe` (optional) | Deferred |
-| P4-5 | Update Issue #1 phases | TODO |
+| P4-1 | Git tag `v3.1.0` on GitHub | ✅ [v3.1.0](https://github.com/valleyworldz/slideshow-forge/releases/tag/v3.1.0) |
+| P4-2 | GitHub Release from CHANGELOG | ✅ |
+| P4-3 | Branch protection + Elite CI required | ✅ `Lint · Audit · Build · E2E` on `master` |
+| P4-4 | electron-builder Windows `.exe` (optional) | Deferred → [#3](https://github.com/valleyworldz/slideshow-forge/issues/3) |
+| P4-5 | Update Issue #1 phases | ✅ |
 
 ### 📋 TODO (Phase 5 — Performance & scale)
 
