@@ -1,0 +1,44 @@
+name: Elite Gate Failure
+description: Report a failure from elite:approve or CI
+title: "[GATE] "
+labels: ["elite-gate", "phase-2-hardening"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use when `npm run elite:approve`, `npm run test:e2e`, or GitHub Actions **Elite CI** fails.
+
+  - type: dropdown
+    id: gate
+    attributes:
+      label: Failed gate
+      options:
+        - npm run lint
+        - npm run audit:consistency
+        - npm run test:e2e
+        - npm run elite:approve
+        - GitHub Actions Elite CI
+    validations:
+      required: true
+
+  - type: textarea
+    id: output
+    attributes:
+      label: Command output / CI log excerpt
+      render: shell
+    validations:
+      required: true
+
+  - type: textarea
+    id: e2e-report
+    attributes:
+      label: e2e-report.json excerpt (if applicable)
+      render: json
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Triage
+      options:
+        - label: Reproduced locally on latest master
+        - label: Not a known non-goal (see Issue #1)

@@ -13,7 +13,7 @@
     "compositeScore": 10.3,
     "eliteGate": "npm run elite:approve",
     "consistencyAudit": "npm run audit:consistency",
-    "e2eChecks": 25
+    "e2eChecks": 26
   },
   "tags": {
     "ELITE": "production approved",

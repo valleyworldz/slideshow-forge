@@ -33,7 +33,7 @@ Node 20+ ──► npm install ──► npm run doctor
               (MP4 path)                   (JPEG normalize)
 ```
 
-**Gate:** `[GATE]` doctor + E2E step 1  
+**Gate:** `[GATE]` doctor + E2E steps 1–26  
 **Fail fast:** No FFmpeg → folder-only export still works; MP4/both blocked with clear message.
 
 ---

@@ -83,6 +83,9 @@ When slides have different `slideDurationSeconds`:
 | Codec | H.264 + AAC |
 | FPS | preset.fps (30) |
 | Bitrate | preset.bitrateMbps |
+| Pixel format | `yuv420p` (filter + `-pix_fmt`) |
+| `-color_range tv`, `-colorspace bt709` | Samsung TV limited-range H.264 |
+| Video filter ends with `format=yuv420p` | Prevents yuvj420p from JPEG full-range decode |
 | Transitions | fade-in per slide (crossfade: future) |
 | Music | optional `--music` path |
 

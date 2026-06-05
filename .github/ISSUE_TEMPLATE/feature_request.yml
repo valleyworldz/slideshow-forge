@@ -1,0 +1,45 @@
+name: Feature Request
+description: Propose a new capability
+title: "[FEATURE] "
+labels: ["phase-3-enhancements"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Check [Issue #1 scope lock](https://github.com/valleyworldz/slideshow-forge/issues/1) for non-goals before filing.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem / user story
+      placeholder: "As a … I want … so that …"
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+    validations:
+      required: true
+
+  - type: dropdown
+    id: layer
+    attributes:
+      label: Primary layer
+      options:
+        - CORE
+        - UI
+        - IPC
+        - IO
+        - API
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      placeholder: "- [ ] npm run test:e2e passes\n- [ ] docs updated"
+    validations:
+      required: true

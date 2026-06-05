@@ -1,0 +1,59 @@
+name: Bug Report
+description: Report a reproducible bug
+title: "[BUG] "
+labels: ["core"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Authority: [docs/SOURCE_OF_TRUTH.md](../docs/SOURCE_OF_TRUTH.md)
+
+  - type: dropdown
+    id: surface
+    attributes:
+      label: Surface
+      options:
+        - Electron desktop
+        - Web UI
+        - CLI
+        - Export API
+        - E2E / CI
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: "1. npm run electron:dev\n2. Import folder\n3. Export MP4"
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true
+
+  - type: textarea
+    id: env
+    attributes:
+      label: Environment
+      placeholder: "OS, Node version, FFmpeg version (npm run doctor)"
+      render: shell
+
+  - type: checkboxes
+    id: gates
+    attributes:
+      label: Pre-submit checks
+      options:
+        - label: I ran npm run doctor
+        - label: I checked docs/SOURCE_OF_TRUTH.md for known non-goals

@@ -9,7 +9,7 @@
 | Workspace `photos for use` | ✅ |
 | FFmpeg + Sharp | ✅ |
 | Electron + Web + CLI builds | ✅ |
-| E2E (25 checks, subset + MP4 + both) | ✅ |
+| E2E (26 checks, subset + MP4 + both + pix_fmt) | ✅ |
 | Consistency audit | ✅ `npm run audit:consistency` |
 
 Re-verify anytime: `npm run elite:approve`  

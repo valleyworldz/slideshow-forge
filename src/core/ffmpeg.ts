@@ -99,6 +99,14 @@ export async function renderSlideshowMp4(params: {
     "4.1",
     "-pix_fmt",
     "yuv420p",
+    "-color_range",
+    "tv",
+    "-colorspace",
+    "bt709",
+    "-color_primaries",
+    "bt709",
+    "-color_trc",
+    "bt709",
     "-b:v",
     bitrate,
     "-r",
@@ -139,11 +147,37 @@ function buildVideoFilter(
   transition: TransitionMode
 ): string {
   const scale = `scale=${width}:${height}:force_original_aspect_ratio=decrease,pad=${width}:${height}:(ow-iw)/2:(oh-ih)/2:black`;
+  const samsungFmt = "format=yuv420p";
   if (transition === "none" || fadeDuration <= 0) {
-    return `${scale},fps=${fps}`;
+    return `${scale},fps=${fps},${samsungFmt}`;
   }
   if (transition === "fade-to-black") {
-    return `${scale},fps=${fps},fade=t=in:st=0:d=${fadeDuration},fade=t=out:st=${fadeDuration}:d=${fadeDuration}`;
+    return `${scale},fps=${fps},fade=t=in:st=0:d=${fadeDuration},fade=t=out:st=${fadeDuration}:d=${fadeDuration},${samsungFmt}`;
   }
-  return `${scale},fps=${fps},fade=t=in:st=0:d=${fadeDuration}`;
+  return `${scale},fps=${fps},fade=t=in:st=0:d=${fadeDuration},${samsungFmt}`;
+}
+
+/** Resolve ffprobe binary adjacent to ffmpeg. */
+export function ffprobePathFromFfmpeg(ffmpegPath: string): string {
+  return ffmpegPath.replace(/ffmpeg(\.exe)?$/i, "ffprobe$1");
+}
+
+export async function probeMp4PixelFormat(filePath: string, ffmpegPath?: string): Promise<string> {
+  const ff = await detectFfmpeg(ffmpegPath);
+  if (!ff.installed || !ff.path) throw new Error("FFmpeg required for ffprobe");
+  const probe = ffprobePathFromFfmpeg(ff.path);
+  const { stdout } = await runCommand(probe, [
+    "-v",
+    "error",
+    "-select_streams",
+    "v:0",
+    "-show_entries",
+    "stream=pix_fmt",
+    "-of",
+    "csv=p=0",
+    filePath,
+  ]);
+  const pix = stdout.trim().split("\n")[0]?.trim();
+  if (!pix) throw new Error("Could not read pix_fmt from ffprobe");
+  return pix;
 }

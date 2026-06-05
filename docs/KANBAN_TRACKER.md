@@ -41,23 +41,25 @@
 | P0-6 | Elite workspace `photos for use` | `WORKSPACE.md` |
 | P0-7 | Initial git push | `master` on GitHub |
 
-### 🔄 IN PROGRESS (Phase 1 — Documentation Elite)
+### ✅ DONE (Phase 1 — Documentation Elite)
 
-| ID | Task | Owner | Link |
-|----|------|-------|------|
-| P1-1 | SOURCE_OF_TRUTH + root maps | — | [docs/SOURCE_OF_TRUTH.md](./SOURCE_OF_TRUTH.md) |
-| P1-2 | Architecture & quality guide | — | [ARCHITECTURE_QUALITY_GUIDE.md](./ARCHITECTURE_QUALITY_GUIDE.md) |
-| P1-3 | Metadata blocks on core files | — | [METADATA_CONVENTIONS.md](./METADATA_CONVENTIONS.md) |
-| P1-4 | Consistency audit script | — | `npm run audit:consistency` |
-| P1-5 | GitHub scope lock Issue #1 | — | see repo issues |
+| ID | Task | Link |
+|----|------|------|
+| P1-1 | SOURCE_OF_TRUTH + root maps | [docs/SOURCE_OF_TRUTH.md](./SOURCE_OF_TRUTH.md) |
+| P1-2 | Architecture & quality guide | [ARCHITECTURE_QUALITY_GUIDE.md](./ARCHITECTURE_QUALITY_GUIDE.md) |
+| P1-3 | Metadata blocks on core files | [METADATA_CONVENTIONS.md](./METADATA_CONVENTIONS.md) |
+| P1-4 | Consistency audit script | `npm run audit:consistency` |
+| P1-5 | GitHub scope lock Issue #1 | [#1](https://github.com/valleyworldz/slideshow-forge/issues/1) |
 
-### 📋 TODO (Phase 2 — Hardening)
+### 🔄 IN PROGRESS (Phase 2 — Hardening)
 
-| ID | Task | Acceptance |
-|----|------|------------|
-| P2-1 | GitHub Actions CI | lint + e2e on push |
-| P2-2 | MP4 yuv420p Samsung fix | ffprobe pix_fmt=yuv420p |
-| P2-3 | Issue templates | bug, feature, elite-gate |
+| ID | Task | Status | Artifact |
+|----|------|--------|----------|
+| P2-1 | GitHub Actions CI | ✅ | `.github/workflows/elite-ci.yml` |
+| P2-2 | MP4 yuv420p Samsung fix | ✅ | `ffmpeg.ts` + E2E pix_fmt check |
+| P2-3 | Issue templates | ✅ | bug, feature, elite-gate, scope-lock |
+
+### 📋 TODO (Phase 2 — remaining)
 
 ### 📋 TODO (Phase 3 — Enhancements)
 
@@ -93,9 +95,9 @@ master (protected intent)
 | Milestone | Target | Exit criteria |
 |-----------|--------|---------------|
 | **M0: v3.0.0 GA** | ✅ Done | elite:approve pass, USB export works |
-| **M1: Doc Elite** | Current | All docs linked, audit:consistency pass |
-| **M2: CI Hardening** | Next | GitHub Actions green |
-| **M3: TV Pixel-perfect** | Future | yuv420p + crossfade |
+| **M1: Doc Elite** | ✅ Done | All docs linked, audit:consistency pass |
+| **M2: CI Hardening** | ✅ Done | GitHub Actions green, yuv420p E2E |
+| **M3: TV Pixel-perfect** | Future | true crossfade transitions |
 
 ---
 

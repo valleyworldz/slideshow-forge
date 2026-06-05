@@ -16,7 +16,7 @@
 | 2 | **Maintainability** | **10** | 🟢 | Layer model, dual-runtime pattern documented |
 | 3 | **Architecture** | **11** | 🟢 | FLOW_MAP, single export orchestrator |
 | 4 | **Documentation** | **11** | 🟢 | Full docs/ hub + root maps + metadata blocks |
-| 5 | **Test coverage** | **10** | 🟢 | 25-step E2E + elite gate |
+| 5 | **Test coverage** | **10** | 🟢 | 26-step E2E + pix_fmt + elite gate |
 | 6 | **AI agent readiness** | **11** | 🟢 | CLI `--json`, AGENTS.md, manifest sequence |
 | 7 | **Developer onboarding** | **10** | 🟢 | README, DIRECTORY_TREE, quick starts |
 | 8 | **Production readiness** | **10** | 🟢 | Real Sharp + FFmpeg, no mocks |
@@ -60,7 +60,7 @@
 
 | Gate | Result | When |
 |------|--------|------|
-| E2E 25/25 | ✅ | v3.0.0 |
+| E2E 26/26 | ✅ | v3.0.0 |
 | elite:approve 7/7 | ✅ | v3.0.0 |
 | lint tsc | ✅ | v3.0.0 |
 | consistency audit | ✅ | v3.0.0 doc pass |
@@ -78,8 +78,9 @@ npm run audit:consistency
 
 | Item | Impact | Phase |
 |------|--------|-------|
-| MP4 `yuv420p` for Samsung | Compatibility | Phase 2 |
 | True crossfade transitions | UX | Phase 3 |
-| GitHub Actions CI | Automation | Phase 2 |
+| CHANGELOG.md automation | Release | Phase 3 |
+
+~~MP4 yuv420p for Samsung~~ — **Done** (Phase 2: `format=yuv420p` filter + ffprobe E2E)
 
 Tracked in [KANBAN_TRACKER.md](./KANBAN_TRACKER.md).

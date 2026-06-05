@@ -3,7 +3,7 @@
  * @meta SLIDESHOW FORGE — [GATE] Production E2E
  * ───────────────────────────────────────────────────────────────────────────
  * @file     e2e.ts
- * @purpose  25 automated checks across export, CLI, API, card format
+ * @purpose  26 automated checks across export, CLI, API, card format, pix_fmt
  * @layer    GATE
  * @depends  exporter.node, server, cli paths, workspace
  * @consumers npm run test:e2e, elite-check
@@ -22,11 +22,12 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { runDoctor } from "../src/core/doctor.node.ts";
 import { scanFolder } from "../src/core/scanner.node.ts";
+import { albumOutputPath } from "../src/core/processor.node.ts";
 import { runExport } from "../src/core/exporter.node.ts";
 import { createPreset } from "../src/core/presets.ts";
 import { saveProject, loadProject, createEmptyProject } from "../src/core/project.ts";
 import { startApiServer } from "../src/server/index.ts";
-import { detectFfmpeg } from "../src/core/ffmpeg.ts";
+import { detectFfmpeg, probeMp4PixelFormat } from "../src/core/ffmpeg.ts";
 import {
   buildNormalizeOptionsForPhoto,
   patchPhoto,
@@ -296,6 +297,19 @@ async function main() {
       throw new Error(`MP4 duration ${dur.toFixed(1)}s outside [${expectedMin}, ${expectedMax}]`);
     }
     return `${info}, ${dur.toFixed(1)}s`;
+  });
+
+  await step("export-mp4-pix-fmt-yuv420p", async () => {
+    const mp4 = path.join(
+      albumOutputPath(path.join(OUT_DIR, "02-mp4-subset"), "Elite_Subset_MP4"),
+      "Samsung_Slideshow_Video.mp4"
+    );
+    await access(mp4);
+    const pix = await probeMp4PixelFormat(mp4);
+    if (pix !== "yuv420p") {
+      throw new Error(`Samsung requires yuv420p, got ${pix} (not yuvj420p)`);
+    }
+    return `pix_fmt=${pix}`;
   });
 
   await step("export-both-subset", async () => {
