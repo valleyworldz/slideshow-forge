@@ -86,13 +86,13 @@
 | P5-3 | Export progress UI polish | ✅ finer progress during normalize/frames |
 | P5-4 | E2E timing budget or HW doc | ✅ [PERFORMANCE.md](./PERFORMANCE.md) |
 
-### 📋 TODO (Phase 6 — TV validation)
+### ✅ DONE (Phase 6 — TV validation)
 
 | ID | Task | Status |
 |----|------|--------|
-| P6-1 | `docs/TV_VALIDATION.md` | TODO |
-| P6-2 | Manual Samsung USB sign-off | TODO |
-| P6-3 | Optional `scripts/tv-probe.ts` | TODO |
+| P6-1 | `docs/TV_VALIDATION.md` | ✅ |
+| P6-2 | Manual Samsung USB sign-off | ☐ User — matrix in TV_VALIDATION.md |
+| P6-3 | `scripts/tv-probe.ts` + `npm run tv:probe` | ✅ |
 
 ### 📋 TODO (Phase 7 — fade-to-black bake)
 

@@ -16,10 +16,13 @@ Authority: [docs/SOURCE_OF_TRUTH.md](docs/SOURCE_OF_TRUTH.md)
 - **Parallel Sharp normalize** during export — configurable pool via `normalizeConcurrency` (`concurrency.node.ts`)
 - Export phase **timing benchmarks** logged and returned as `ExportResult.timing`
 - [docs/PERFORMANCE.md](docs/PERFORMANCE.md) — baseline template and stress commands
+- [docs/TV_VALIDATION.md](docs/TV_VALIDATION.md) — Samsung USB checklist + validation matrix
+- `npm run tv:probe` — automated JPEG + MP4 spec validation (`tv-probe.node.ts`)
 
 ### Changed
 
 - Export pipeline: two-phase normalize (parallel) then frame assembly (sequential); eliminates duplicate Sharp pass per slide
+- E2E `export-both-subset` runs Samsung album probe on output
 
 ## [3.1.0] - 2026-05-24
 

@@ -28,6 +28,7 @@ import { createPreset } from "../src/core/presets.ts";
 import { saveProject, loadProject, createEmptyProject } from "../src/core/project.ts";
 import { startApiServer } from "../src/server/index.ts";
 import { detectFfmpeg, probeMp4PixelFormat } from "../src/core/ffmpeg.ts";
+import { assertSamsungAlbum } from "../src/core/tv-probe.node.ts";
 import {
   buildNormalizeOptionsForPhoto,
   patchPhoto,
@@ -351,7 +352,8 @@ async function main() {
     });
     await assertFile(path.join(r.outputDir, "000001.jpg"));
     await assertFile(path.join(r.outputDir, "Samsung_Slideshow_Video.mp4"), 50_000);
-    return `jpg + mp4 (${r.files.length} files)`;
+    const probeDetail = await assertSamsungAlbum(r.outputDir);
+    return `jpg + mp4 (${r.files.length} files), tv-probe: ${probeDetail}`;
   });
 
   // --- Per-card formatting ---
