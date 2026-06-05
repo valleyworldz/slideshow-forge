@@ -11,7 +11,15 @@ Authority: [docs/SOURCE_OF_TRUTH.md](docs/SOURCE_OF_TRUTH.md)
 
 ## [Unreleased]
 
----
+### Added
+
+- **Parallel Sharp normalize** during export — configurable pool via `normalizeConcurrency` (`concurrency.node.ts`)
+- Export phase **timing benchmarks** logged and returned as `ExportResult.timing`
+- [docs/PERFORMANCE.md](docs/PERFORMANCE.md) — baseline template and stress commands
+
+### Changed
+
+- Export pipeline: two-phase normalize (parallel) then frame assembly (sequential); eliminates duplicate Sharp pass per slide
 
 ## [3.1.0] - 2026-05-24
 

@@ -119,6 +119,17 @@ export interface ExportOptions {
   inputFolder: string;
   onLog?: (message: string) => void;
   onProgress?: (percent: number) => void;
+  /** Parallel Sharp jobs during normalize phase (default: os.cpus capped at 8). */
+  normalizeConcurrency?: number;
+}
+
+export interface ExportTiming {
+  normalizeMs: number;
+  framesMs: number;
+  encodeMs: number;
+  totalMs: number;
+  photoCount: number;
+  concurrency: number;
 }
 
 export interface ExportResult {
@@ -127,6 +138,7 @@ export interface ExportResult {
   manifest: ExportManifest;
   files: string[];
   errors: string[];
+  timing?: ExportTiming;
 }
 
 export interface SlideshowProject {
