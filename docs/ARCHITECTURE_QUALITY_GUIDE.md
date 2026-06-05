@@ -105,7 +105,7 @@ Preset IDs map via `exportMode.ts` — UI preset dropdown must stay in sync.
 
 ### Test quality
 
-- 25 E2E steps minimum before merge
+- 27 E2E steps minimum before merge
 - Elite approve = doctor + build all surfaces + workspace scan + e2e
 - Report JSON for machine parsing
 

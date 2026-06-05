@@ -107,18 +107,25 @@ Export folder ──► User copies to USB (exFAT) ──► Samsung TV
 
 ---
 
-## 🔴 Stage 5 — Quality Gates (automated E2E)
+## 🔴 Stage 5 — Quality Gates (automated E2E — 27 checks)
 
 | # | Check | Layer |
 |---|-------|-------|
-| 1–3 | Doctor, FFmpeg, Sharp | `[GATE]` |
-| 4–8 | Card format, project JSON | `[CORE]` |
-| 9–16 | Export modes, backgrounds, presets | `[IO]` |
-| 17–20 | CLI `--json` | `[API]` |
-| 21–22 | API health + ZIP | `[API]` |
-| 23–25 | Electron + web + CLI artifacts | `[IPC]` `[UI]` |
+| 1 | doctor | `[GATE]` |
+| 2 | card-format-helpers | `[CORE]` |
+| 3–4 | artifacts-cli, artifacts-electron | `[API]` `[IPC]` |
+| 5–7 | scan-full-inventory, prepare-subset, project-card-fields-roundtrip | `[CORE]` |
+| 8–12 | export-folder/mp4/both subset, pix_fmt yuv420p, crossfade | `[IO]` |
+| 13 | session-persist-roundtrip | `[CORE]` |
+| 14–15 | export-card-formats mp4 + folder | `[IO]` |
+| 16–18 | export-background (black-bars, blurred-fill, crop-fill) | `[IO]` |
+| 19–20 | export-preset-4k-mp4, export-preset-folder-only | `[IO]` |
+| 21–23 | cli-doctor/scan/export JSON | `[API]` |
+| 24–25 | api-health, api-export-zip | `[API]` |
+| 26 | export-full-inventory-folder (skipped unless `E2E_FULL=1`) | `[IO]` |
+| 27 | artifacts-web-dist | `[UI]` |
 
-**Full stress:** `E2E_FULL=1` → all ~188 workspace photos.
+**Full stress:** `E2E_FULL=1` → all ~188 workspace photos (step 26 runs instead of skip).
 
 ---
 

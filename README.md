@@ -27,6 +27,7 @@
 | # | Document | Tag | Purpose |
 |---|----------|-----|---------|
 | ★ | [**SOURCE OF TRUTH**](./docs/SOURCE_OF_TRUTH.md) | ⚪ `[META]` | Canonical index — **wins on conflict** |
+| ★ | [**Elite Dev Handoff**](./docs/ELITE_DEV_HANDOFF.md) | ⚪ `[META]` | Incoming dev onboarding + P4–P8 roadmap |
 | 1 | [**E2E MAP**](./E2E_MAP.md) | ⚪ | End-to-end journey (actors → USB → TV) |
 | 2 | [**FLOW MAP**](./FLOW_MAP.md) | ⚪ | Mermaid architecture & IPC flows |
 | 3 | [Architecture & Quality Guide](./docs/ARCHITECTURE_QUALITY_GUIDE.md) | 🔵 | Layers, rules, anti-patterns |

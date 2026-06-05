@@ -1,4 +1,4 @@
-# 🌳 DIRECTORY TREE — Slideshow Forge v3.0.0
+# 🌳 DIRECTORY TREE — Slideshow Forge v3.1.0
 
 > Annotated layout. `[tag]` = layer from [SOURCE_OF_TRUTH.md](./SOURCE_OF_TRUTH.md).
 
@@ -20,6 +20,7 @@ slideshow-forge/                          [META] Repository root
 │
 ├── 📁 docs/                              [META] Documentation hub
 │   ├── SOURCE_OF_TRUTH.md                ★ Canonical index
+│   ├── ELITE_DEV_HANDOFF.md              Incoming dev + P4–P8 roadmap
 │   ├── ARCHITECTURE_QUALITY_GUIDE.md     Layers + quality rules
 │   ├── SCORECARD.md                      10+ aspect scores
 │   ├── KANBAN_TRACKER.md                 Phases + git tracker
@@ -37,7 +38,7 @@ slideshow-forge/                          [META] Repository root
 │   └── preload.ts                        contextBridge API
 │
 ├── 📁 scripts/                           [GATE] Automation
-│   ├── e2e.ts                            25 production checks
+│   ├── e2e.ts                            27 production checks
 │   ├── elite-check.ts                    7-gate approval
 │   └── consistency-audit.ts              Doc/version consistency
 │
