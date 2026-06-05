@@ -11,6 +11,8 @@
 | Electron + Web + CLI builds | ✅ |
 | E2E (27 checks, crossfade + pix_fmt) | ✅ |
 | Consistency audit | ✅ `npm run audit:consistency` |
+| Release tag `v3.1.0` | ✅ [GitHub Release](https://github.com/valleyworldz/slideshow-forge/releases/tag/v3.1.0) |
+| Branch protection | ✅ Elite CI required on `master` |
 
 Re-verify anytime: `npm run elite:approve`  
 Full 188-photo stress test: `npm run elite:approve:full`
@@ -26,7 +28,8 @@ Full 188-photo stress test: `npm run elite:approve:full`
 | **Export** | Real JPEG normalize (Sharp), real H.264 (FFmpeg) | ✅ |
 | **EXIF** | Orientation + dates via exifr | ✅ |
 | **E2E** | Automated against workspace photos | ✅ |
-| **Docs** | SOURCE_OF_TRUTH + maps + scorecard | ✅ |
+| **Docs** | SOURCE_OF_TRUTH + ELITE_DEV_HANDOFF + maps + scorecard | ✅ |
+| **Release** | v3.1.0 tag, GitHub Release, protected `master` | ✅ |
 
 ## Elite workflow
 
