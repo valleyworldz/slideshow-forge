@@ -48,6 +48,7 @@ const REQUIRED_DOCS = [
   "E2E_MAP.md",
   "FLOW_MAP.md",
   "docs/SOURCE_OF_TRUTH.md",
+  "docs/ELITE_DEV_HANDOFF.md",
   "docs/ARCHITECTURE_QUALITY_GUIDE.md",
   "docs/SCORECARD.md",
   "docs/KANBAN_TRACKER.md",

@@ -36,18 +36,19 @@
 | # | Document | Audience | Purpose |
 |---|----------|----------|---------|
 | 1 | [README.md](../README.md) | Everyone | Master entry, quick start, score summary |
-| 2 | [E2E_MAP.md](../E2E_MAP.md) | Devs, QA, AI | End-to-end journey map |
-| 3 | [FLOW_MAP.md](../FLOW_MAP.md) | Architects | Data/control flow diagrams |
-| 4 | [docs/ARCHITECTURE_QUALITY_GUIDE.md](./ARCHITECTURE_QUALITY_GUIDE.md) | Elite devs | Layers, responsibilities, quality rules |
-| 5 | [docs/PIPELINE.md](./PIPELINE.md) | Export engineers | Scan → normalize → encode → manifest |
-| 6 | [docs/DIRECTORY_TREE.md](./DIRECTORY_TREE.md) | Onboarding | Annotated tree |
-| 7 | [docs/SCORECARD.md](./SCORECARD.md) | Stakeholders | 10+ aspect scores |
-| 8 | [docs/KANBAN_TRACKER.md](./KANBAN_TRACKER.md) | PM / dev | Phases, issues, git tracker |
-| 9 | [docs/METADATA_CONVENTIONS.md](./METADATA_CONVENTIONS.md) | Contributors | File header blocks |
-| 10 | [docs/ELITE_CONSISTENCY_AUDIT.md](./ELITE_CONSISTENCY_AUDIT.md) | Release | Consistency checklist + script |
-| 11 | [CHANGELOG.md](../CHANGELOG.md) | Release | Version history (Keep a Changelog) |
-| 12 | [AGENTS.md](../AGENTS.md) | AI agents | JSON CLI contract |
-| 13 | [ELITE_APPROVED.md](../ELITE_APPROVED.md) | Release | Last gate status |
+| 2 | [ELITE_DEV_HANDOFF.md](./ELITE_DEV_HANDOFF.md) | Incoming dev / release owner | Full onboarding + P4–P8 roadmap |
+| 3 | [E2E_MAP.md](../E2E_MAP.md) | Devs, QA, AI | End-to-end journey map |
+| 4 | [FLOW_MAP.md](../FLOW_MAP.md) | Architects | Data/control flow diagrams |
+| 5 | [docs/ARCHITECTURE_QUALITY_GUIDE.md](./ARCHITECTURE_QUALITY_GUIDE.md) | Elite devs | Layers, responsibilities, quality rules |
+| 6 | [docs/PIPELINE.md](./PIPELINE.md) | Export engineers | Scan → normalize → encode → manifest |
+| 7 | [docs/DIRECTORY_TREE.md](./DIRECTORY_TREE.md) | Onboarding | Annotated tree |
+| 8 | [docs/SCORECARD.md](./SCORECARD.md) | Stakeholders | 10+ aspect scores |
+| 9 | [docs/KANBAN_TRACKER.md](./KANBAN_TRACKER.md) | PM / dev | Phases, issues, git tracker |
+| 10 | [docs/METADATA_CONVENTIONS.md](./METADATA_CONVENTIONS.md) | Contributors | File header blocks |
+| 11 | [docs/ELITE_CONSISTENCY_AUDIT.md](./ELITE_CONSISTENCY_AUDIT.md) | Release | Consistency checklist + script |
+| 12 | [CHANGELOG.md](../CHANGELOG.md) | Release | Version history (Keep a Changelog) |
+| 13 | [AGENTS.md](../AGENTS.md) | AI agents | JSON CLI contract |
+| 14 | [ELITE_APPROVED.md](../ELITE_APPROVED.md) | Release | Last gate status |
 
 ---
 
@@ -83,7 +84,7 @@ OUTPUT: Samsung_Slideshows/<Album>/
 
 1. Code change includes updated doc cross-links if behavior changed  
 2. `npm run lint` passes  
-3. `npm run test:e2e` passes (25/25)  
+3. `npm run test:e2e` passes (27/27)  
 4. `npm run elite:approve` exit `0`  
 5. `npm run audit:consistency` exit `0`
 6. `npm run changelog:check` exit `0`
@@ -91,4 +92,4 @@ OUTPUT: Samsung_Slideshows/<Album>/
 
 ---
 
-*Last updated: v3.0.0 documentation pass — Developer Kanban mode*
+*Last updated: v3.1.0 — Elite Dev Handoff + P4 release engineering*

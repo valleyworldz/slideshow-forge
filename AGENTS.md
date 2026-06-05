@@ -18,6 +18,7 @@ Ensure `data.ok === true` and FFmpeg is installed before MP4 exports.
 | Doc | Use when |
 |-----|----------|
 | [SOURCE_OF_TRUTH.md](./docs/SOURCE_OF_TRUTH.md) | Resolving contradictions |
+| [ELITE_DEV_HANDOFF.md](./docs/ELITE_DEV_HANDOFF.md) | Onboarding + phase roadmap |
 | [E2E_MAP.md](./E2E_MAP.md) | Understanding full pipeline |
 | [PIPELINE.md](./docs/PIPELINE.md) | Export stage details |
 | [METADATA_CONVENTIONS.md](./docs/METADATA_CONVENTIONS.md) | Reading `@meta` blocks in source |
@@ -25,7 +26,7 @@ Ensure `data.ok === true` and FFmpeg is installed before MP4 exports.
 ## Elite approval
 
 ```bash
-npm run test:production      # lint + 25-step E2E + elite gate
+npm run test:production      # lint + 27-step E2E + elite gate
 npm run elite:approve        # standard gate (exit 0 = approved)
 npm run audit:consistency    # doc/version sync
 npm run elite:approve:full   # includes full 188-photo export (~30+ min)
