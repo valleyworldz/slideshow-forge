@@ -59,7 +59,7 @@ outputDir/Samsung_Slideshows/<albumName>/
 
 **Output:** `000001.jpg`, `000002.jpg`, … sequential numbering
 
----
+**Performance (P5):** `exporter.node.ts` normalizes all slides in parallel (`mapWithConcurrency`, default `min(8, os.cpus())`), then assembles frames sequentially. See [PERFORMANCE.md](./PERFORMANCE.md).
 
 ## Stage 4 — Frame Expansion (variable duration & crossfade)
 

@@ -81,10 +81,10 @@
 
 | ID | Task | Status |
 |----|------|--------|
-| P5-1 | 188-photo export benchmark | TODO |
-| P5-2 | Parallel Sharp normalize | TODO |
-| P5-3 | Export progress UI polish | TODO |
-| P5-4 | E2E timing budget or HW doc | TODO |
+| P5-1 | 188-photo export benchmark | ✅ timing in logs + `ExportResult.timing` |
+| P5-2 | Parallel Sharp normalize | ✅ `concurrency.node.ts` + two-phase export |
+| P5-3 | Export progress UI polish | ✅ finer progress during normalize/frames |
+| P5-4 | E2E timing budget or HW doc | ✅ [PERFORMANCE.md](./PERFORMANCE.md) |
 
 ### 📋 TODO (Phase 6 — TV validation)
 
