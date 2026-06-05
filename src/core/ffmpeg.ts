@@ -154,7 +154,10 @@ function buildVideoFilter(
   if (transition === "fade-to-black") {
     return `${scale},fps=${fps},fade=t=in:st=0:d=${fadeDuration},fade=t=out:st=${fadeDuration}:d=${fadeDuration},${samsungFmt}`;
   }
-  return `${scale},fps=${fps},fade=t=in:st=0:d=${fadeDuration},${samsungFmt}`;
+  if (transition === "crossfade") {
+    return `${scale},fps=${fps},${samsungFmt}`;
+  }
+  return `${scale},fps=${fps},${samsungFmt}`;
 }
 
 /** Resolve ffprobe binary adjacent to ffmpeg. */

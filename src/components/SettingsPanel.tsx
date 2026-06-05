@@ -294,7 +294,9 @@ export default function SettingsPanel({
               })}
             </div>
             <p className="text-slate-500 text-xs">
-              MP4 only: transitions apply fade-in on the video stream (not true inter-slide crossfade yet). JPEG folder export uses instant cuts — Samsung TV controls timing in slideshow mode.
+              MP4 only: <strong className="text-slate-400">Crossfade</strong> blends each slide into the next (0.5s overlap).{" "}
+              <strong className="text-slate-400">Fade to black</strong> applies a cinematic fade on the video stream.{" "}
+              JPEG folder export uses instant cuts — Samsung TV controls timing in slideshow mode.
             </p>
           </div>
         </div>

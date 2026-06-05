@@ -63,10 +63,10 @@
 
 ### 📋 TODO (Phase 3 — Enhancements)
 
-| ID | Task | Acceptance |
-|----|------|------------|
-| P3-1 | True inter-slide crossfade | visual E2E or manual sign-off |
-| P3-2 | CHANGELOG.md automation | conventional commits |
+| ID | Task | Status |
+|----|------|--------|
+| P3-1 | True inter-slide crossfade | ✅ `transitions.node.ts` + E2E |
+| P3-2 | CHANGELOG automation | ✅ `CHANGELOG.md` + `changelog:check` |
 
 ---
 
@@ -97,7 +97,7 @@ master (protected intent)
 | **M0: v3.0.0 GA** | ✅ Done | elite:approve pass, USB export works |
 | **M1: Doc Elite** | ✅ Done | All docs linked, audit:consistency pass |
 | **M2: CI Hardening** | ✅ Done | GitHub Actions green, yuv420p E2E |
-| **M3: TV Pixel-perfect** | Future | true crossfade transitions |
+| **M3: TV Pixel-perfect** | ✅ Done | yuv420p + true crossfade |
 
 ---
 

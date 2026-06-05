@@ -21,6 +21,11 @@ import { detectFfmpeg, renderSlideshowMp4 } from "./ffmpeg";
 import { buildManifest, buildReadmeTvGuide } from "./manifest";
 import { buildNormalizeOptionsForPhoto, resolveSlideDuration } from "./cardFormat";
 import { albumOutputPath, normalizePhotoToJpeg, numberedJpegName } from "./processor.node";
+import {
+  blendSlideJpegs,
+  crossfadeFrameCount,
+  ffmpegTransitionForPreset,
+} from "./transitions.node";
 import type { ExportOptions, ExportResult, PhotoAsset } from "./types";
 
 export async function runExport(
@@ -63,6 +68,9 @@ export async function runExport(
   const tempFrames: string[] = [];
   let frameSeq = 0;
 
+  const needVideo = options.mode === "mp4" || options.mode === "both";
+  const bakeCrossfade = needVideo && options.preset.transition === "crossfade";
+
   for (let i = 0; i < ready.length; i++) {
     const photo = ready[i];
     const name = numberedJpegName(i);
@@ -75,7 +83,12 @@ export async function runExport(
       options.backgroundMode
     );
     const slideSec = resolveSlideDuration(photo, options.preset.slideDurationSeconds);
-    const frameCopies = Math.max(1, Math.round(slideSec * options.preset.fps));
+    const slideFrames = Math.max(1, Math.round(slideSec * options.preset.fps));
+    const cfFrames =
+      bakeCrossfade && i < ready.length - 1
+        ? Math.min(crossfadeFrameCount(options.preset.fps), Math.max(1, Math.floor(slideFrames / 3)))
+        : 0;
+    const holdFrames = Math.max(1, slideFrames - cfFrames);
 
     try {
       const fmt = photo.frameMode && photo.frameMode !== "default" ? ` [${photo.frameMode}]` : "";
@@ -88,10 +101,30 @@ export async function runExport(
       await normalizePhotoToJpeg(photo, outPath, normOpts);
       await normalizePhotoToJpeg(photo, tmpFrame, normOpts);
       tempFrames.push(tmpFrame);
-      for (let c = 0; c < frameCopies; c++) {
+
+      for (let c = 0; c < holdFrames; c++) {
         frameSeq++;
         await copyFile(tmpFrame, path.join(framesDir, `${String(frameSeq).padStart(6, "0")}.jpg`));
       }
+
+      if (cfFrames > 0 && i < ready.length - 1) {
+        const nextPhoto = ready[i + 1];
+        const nextTmp = path.join(framesDir, `_blend_next_${String(i).padStart(4, "0")}.jpg`);
+        const nextNormOpts = buildNormalizeOptionsForPhoto(
+          nextPhoto,
+          options.preset.width,
+          options.preset.height,
+          options.backgroundMode
+        );
+        await normalizePhotoToJpeg(nextPhoto, nextTmp, nextNormOpts);
+        for (let k = 1; k <= cfFrames; k++) {
+          const blended = await blendSlideJpegs(tmpFrame, nextTmp, k / cfFrames);
+          frameSeq++;
+          await writeFile(path.join(framesDir, `${String(frameSeq).padStart(6, "0")}.jpg`), blended);
+        }
+        await rm(nextTmp, { force: true });
+      }
+
       outputFiles.push(name);
     } catch (e) {
       const msg = e instanceof Error ? e.message : String(e);
@@ -101,7 +134,6 @@ export async function runExport(
     progress(Math.floor(((i + 1) / ready.length) * 70));
   }
 
-  const needVideo = options.mode === "mp4" || options.mode === "both";
   const needFolder = options.mode === "folder" || options.mode === "both";
 
   if (!needFolder && needVideo) {
@@ -125,7 +157,7 @@ export async function runExport(
           framesDir,
           outputPath: mp4Path,
           preset: options.preset,
-          transition: options.preset.transition,
+          transition: ffmpegTransitionForPreset(options.preset.transition),
           framesInputFps: options.preset.fps,
           musicPath: options.musicEnabled ? options.musicPath : undefined,
           onLog: log,

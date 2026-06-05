@@ -1,11 +1,11 @@
-# 🏛️ SOURCE OF TRUTH — Slideshow Forge v3.0.0
+# 🏛️ SOURCE OF TRUTH — Slideshow Forge v3.1.0
 
 > **Single canonical index.** If any document contradicts this file, **this file wins** until updated via PR + elite audit.
 
 | Field | Value |
 |-------|-------|
 | **Product** | Slideshow Forge |
-| **Version** | `3.0.0` |
+| **Version** | `3.1.0` |
 | **Repo** | [github.com/valleyworldz/slideshow-forge](https://github.com/valleyworldz/slideshow-forge) |
 | **License** | Apache-2.0 |
 | **Primary output** | Samsung Smart TV USB slideshows (numbered JPEG folder + optional H.264 MP4) |
@@ -45,8 +45,9 @@
 | 8 | [docs/KANBAN_TRACKER.md](./KANBAN_TRACKER.md) | PM / dev | Phases, issues, git tracker |
 | 9 | [docs/METADATA_CONVENTIONS.md](./METADATA_CONVENTIONS.md) | Contributors | File header blocks |
 | 10 | [docs/ELITE_CONSISTENCY_AUDIT.md](./ELITE_CONSISTENCY_AUDIT.md) | Release | Consistency checklist + script |
-| 11 | [AGENTS.md](../AGENTS.md) | AI agents | JSON CLI contract |
-| 12 | [ELITE_APPROVED.md](../ELITE_APPROVED.md) | Release | Last gate status |
+| 11 | [CHANGELOG.md](../CHANGELOG.md) | Release | Version history (Keep a Changelog) |
+| 12 | [AGENTS.md](../AGENTS.md) | AI agents | JSON CLI contract |
+| 13 | [ELITE_APPROVED.md](../ELITE_APPROVED.md) | Release | Last gate status |
 
 ---
 
@@ -84,8 +85,9 @@ OUTPUT: Samsung_Slideshows/<Album>/
 2. `npm run lint` passes  
 3. `npm run test:e2e` passes (25/25)  
 4. `npm run elite:approve` exit `0`  
-5. `npm run audit:consistency` exit `0`  
-6. No contradiction with this SOURCE OF TRUTH  
+5. `npm run audit:consistency` exit `0`
+6. `npm run changelog:check` exit `0`
+7. No contradiction with this SOURCE OF TRUTH
 
 ---
 

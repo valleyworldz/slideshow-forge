@@ -55,6 +55,7 @@ const REQUIRED_DOCS = [
   "docs/DIRECTORY_TREE.md",
   "docs/METADATA_CONVENTIONS.md",
   "docs/ELITE_CONSISTENCY_AUDIT.md",
+  "CHANGELOG.md",
   "AGENTS.md",
   "ELITE_APPROVED.md",
 ];
@@ -101,6 +102,13 @@ async function main() {
     } catch (e) {
       if (e instanceof Error && e.message.includes(".env exists")) throw e;
       // .env missing = good
+    }
+  });
+
+  await check("CHANGELOG version section", async () => {
+    const cl = await readText("CHANGELOG.md");
+    if (!cl.includes(`## [${APP_VERSION}]`)) {
+      throw new Error(`CHANGELOG.md missing ## [${APP_VERSION}]`);
     }
   });
 

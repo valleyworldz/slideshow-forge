@@ -41,13 +41,16 @@ jobs:
       - name: Consistency audit
         run: npm run audit:consistency
 
+      - name: Changelog check
+        run: npm run changelog:check
+
       - name: Production build (web + CLI)
         run: npm run build
 
       - name: Electron bundle
         run: npm run build:electron
 
-      - name: Production E2E (26 checks)
+      - name: Production E2E (27 checks)
         run: npm run test:e2e
         env:
           E2E_SKIP_BUILD: "1"

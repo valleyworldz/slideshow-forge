@@ -3,7 +3,7 @@
  * @meta SLIDESHOW FORGE — [GATE] Production E2E
  * ───────────────────────────────────────────────────────────────────────────
  * @file     e2e.ts
- * @purpose  26 automated checks across export, CLI, API, card format, pix_fmt
+ * @purpose  27 automated checks across export, CLI, API, card format, pix_fmt, crossfade
  * @layer    GATE
  * @depends  exporter.node, server, cli paths, workspace
  * @consumers npm run test:e2e, elite-check
@@ -36,6 +36,7 @@ import {
   resolveAspectRatio,
 } from "../src/core/cardFormat.ts";
 import { WORKSPACE_DIR_NAME, WORKSPACE_ALBUM_NAME } from "../src/core/workspace.shared.ts";
+import { APP_VERSION } from "../src/core/constants.ts";
 import type { BackgroundMode, PhotoAsset, SlideshowPreset } from "../src/core/types.ts";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -312,6 +313,30 @@ async function main() {
     return `pix_fmt=${pix}`;
   });
 
+  await step("export-crossfade-transitions", async () => {
+    const photos = (await scanSubset()).slice(0, 4);
+    const preset = createPreset("samsung-safe-1080p", { slideDurationSeconds: 2, transition: "crossfade" });
+    const r = await runExport(photos, {
+      outputDir: path.join(OUT_DIR, "02b-crossfade"),
+      albumName: "Crossfade_Test",
+      mode: "mp4",
+      preset,
+      backgroundMode: "blurred-fill",
+      musicEnabled: false,
+      inputFolder: SUBSET_DIR,
+    });
+    if (r.errors.some((e) => e.includes("FFmpeg"))) throw new Error(r.errors.join("; "));
+    const mp4 = path.join(r.outputDir, "Samsung_Slideshow_Video.mp4");
+    const info = await assertFile(mp4, 40_000);
+    const pix = await probeMp4PixelFormat(mp4);
+    if (pix !== "yuv420p") throw new Error(`Expected yuv420p, got ${pix}`);
+    const dur = await probeMp4DurationSeconds(mp4);
+    if (dur < 6.5 || dur > 9.5) {
+      throw new Error(`Crossfade MP4 duration ${dur.toFixed(1)}s outside expected ~8s window`);
+    }
+    return `${info}, ${dur.toFixed(1)}s inter-slide crossfade`;
+  });
+
   await step("export-both-subset", async () => {
     const photos = await scanSubset();
     const preset = createPreset("samsung-safe-1080p", { slideDurationSeconds: 2, transition: "none" });
@@ -581,7 +606,7 @@ async function main() {
   const failed = results.filter((r) => !r.ok);
   const report = {
     suite: "production-e2e",
-    version: "3.0.0",
+    version: APP_VERSION,
     input: INPUT_DIR,
     output: OUT_DIR,
     mode: RUN_FULL ? "full" : `subset-${SUBSET_COUNT}`,

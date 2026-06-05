@@ -61,14 +61,20 @@ outputDir/Samsung_Slideshows/<albumName>/
 
 ---
 
-## Stage 4 — Frame Expansion (variable duration)
+## Stage 4 — Frame Expansion (variable duration & crossfade)
 
-**File:** `exporter.node.ts` + `cardFormat.resolveSlideDuration`
+**File:** `exporter.node.ts` + `transitions.node.ts` + `cardFormat.resolveSlideDuration`
 
 When slides have different `slideDurationSeconds`:
 
 - Duplicate frame files in `_frames/` at `framesInputFps`
 - FFmpeg reads expanded sequence
+
+When `preset.transition === "crossfade"`:
+
+- Hold `(slideFrames - crossfadeFrames)` copies of slide N
+- Append `crossfadeFrames` Sharp-blended frames into slide N+1 (0.5s default)
+- FFmpeg receives `transition: none` (crossfade already baked)
 
 **TV folder mode:** JPEGs only — TV uses its own timing; manifest records intended durations.
 
@@ -86,7 +92,7 @@ When slides have different `slideDurationSeconds`:
 | Pixel format | `yuv420p` (filter + `-pix_fmt`) |
 | `-color_range tv`, `-colorspace bt709` | Samsung TV limited-range H.264 |
 | Video filter ends with `format=yuv420p` | Prevents yuvj420p from JPEG full-range decode |
-| Transitions | fade-in per slide (crossfade: future) |
+| Transitions | crossfade: baked inter-slide blend; fade-to-black: FFmpeg filter |
 | Music | optional `--music` path |
 
 **Output:** `Samsung_Slideshow_Video.mp4`

@@ -1,8 +1,8 @@
-# 🏆 Slideshow Forge v3.0.0
+# 🏆 Slideshow Forge v3.1.0
 
 [![Elite CI](https://github.com/valleyworldz/slideshow-forge/actions/workflows/elite-ci.yml/badge.svg)](https://github.com/valleyworldz/slideshow-forge/actions/workflows/elite-ci.yml)
 [![Elite Gate](https://img.shields.io/badge/elite--gate-passing-brightgreen?style=for-the-badge)](./ELITE_APPROVED.md)
-[![Version](https://img.shields.io/badge/version-3.0.0-blue?style=for-the-badge)](./package.json)
+[![Version](https://img.shields.io/badge/version-3.1.0-blue?style=for-the-badge)](./package.json)
 [![License](https://img.shields.io/badge/license-Apache--2.0-orange?style=for-the-badge)](./package.json)
 [![Docs](https://img.shields.io/badge/docs-SOURCE%20OF%20TRUTH-purple?style=for-the-badge)](./docs/SOURCE_OF_TRUTH.md)
 
@@ -84,7 +84,7 @@ npm run workspace:export -- --mode both --json
 | Documentation | **11** |
 | AI readiness | **11** |
 | Production | **10** |
-| Tests (26 E2E) | **10** |
+| Tests (27 E2E) | **10** |
 
 Full breakdown → [**docs/SCORECARD.md**](./docs/SCORECARD.md)
 
@@ -106,7 +106,8 @@ Diagrams → [**FLOW_MAP.md**](./FLOW_MAP.md)
 
 ```bash
 npm run lint                 # TypeScript
-npm run test:e2e             # 26 checks (~5–8 min)
+npm run test:e2e             # 27 checks (~5–8 min)
+npm run changelog:check      # CHANGELOG ↔ version sync
 npm run elite:approve        # doctor + build + e2e
 npm run audit:consistency    # doc/version sync
 npm run test:production      # lint + e2e + elite (all-in-one)
@@ -149,7 +150,8 @@ output/Samsung_Slideshows/<AlbumName>/
 | `npm run electron:start` | `[IPC]` | Production desktop |
 | `npm run workspace:export` | `[IO]` | Export elite workspace |
 | `npm run elite:approve` | `[GATE]` | Full approval gate |
-| `npm run test:e2e` | `[GATE]` | 26-step E2E |
+| `npm run test:e2e` | `[GATE]` | 27-step E2E |
+| `npm run changelog:check` | `[GATE]` | CHANGELOG version sync |
 | `npm run audit:consistency` | `[GATE]` | Doc/version audit |
 | `npm run cli -- <cmd>` | `[API]` | CLI with `--json` |
 | `npm run api` | `[API]` | Export API `:3847` |
@@ -185,4 +187,4 @@ Apache-2.0
 
 ---
 
-<p align="center"><strong>Developer Kanban · Elite Documentation · v3.0.0</strong></p>
+<p align="center"><strong>Developer Kanban · Elite Documentation · v3.1.0</strong></p>

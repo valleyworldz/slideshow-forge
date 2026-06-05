@@ -16,7 +16,7 @@
 | 2 | **Maintainability** | **10** | 🟢 | Layer model, dual-runtime pattern documented |
 | 3 | **Architecture** | **11** | 🟢 | FLOW_MAP, single export orchestrator |
 | 4 | **Documentation** | **11** | 🟢 | Full docs/ hub + root maps + metadata blocks |
-| 5 | **Test coverage** | **10** | 🟢 | 26-step E2E + pix_fmt + elite gate |
+| 5 | **Test coverage** | **10** | 🟢 | 27-step E2E + crossfade + pix_fmt |
 | 6 | **AI agent readiness** | **11** | 🟢 | CLI `--json`, AGENTS.md, manifest sequence |
 | 7 | **Developer onboarding** | **10** | 🟢 | README, DIRECTORY_TREE, quick starts |
 | 8 | **Production readiness** | **10** | 🟢 | Real Sharp + FFmpeg, no mocks |
@@ -74,13 +74,10 @@ npm run audit:consistency
 
 ---
 
+~~True crossfade transitions~~ — **Done** (v3.1.0 inter-slide Sharp blend)
+
 ## 📋 Improvement Backlog (optional 11→12)
 
-| Item | Impact | Phase |
-|------|--------|-------|
-| True crossfade transitions | UX | Phase 3 |
-| CHANGELOG.md automation | Release | Phase 3 |
-
-~~MP4 yuv420p for Samsung~~ — **Done** (Phase 2: `format=yuv420p` filter + ffprobe E2E)
+_Empty — all planned phases complete._
 
 Tracked in [KANBAN_TRACKER.md](./KANBAN_TRACKER.md).

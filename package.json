@@ -1,7 +1,7 @@
 {
   "name": "slideshow-forge",
   "private": true,
-  "version": "3.0.0",
+  "version": "3.1.0",
   "type": "module",
   "description": "Convert photo folders into Samsung TV-ready USB slideshows (JPEG folders and H.264 MP4)",
   "main": "dist-electron/main.cjs",
@@ -32,6 +32,7 @@
     "elite:approve": "tsx scripts/elite-check.ts",
     "elite:approve:full": "cross-env E2E_FULL=1 tsx scripts/elite-check.ts",
     "audit:consistency": "tsx scripts/consistency-audit.ts",
+    "changelog:check": "tsx scripts/changelog-check.ts",
     "fixtures:ci": "tsx scripts/generate-ci-fixtures.ts",
     "clean": "node -e \"import('fs').then(fs=>{try{fs.rmSync('dist',{recursive:true})}catch(e){}})\""
   },

@@ -1,4 +1,4 @@
-# Elite Approval — Slideshow Forge v3.0.0
+# Elite Approval — Slideshow Forge v3.1.0
 
 > **Tag:** `[ELITE]` `[GATE]` · **Scorecard:** [docs/SCORECARD.md](./docs/SCORECARD.md)
 
@@ -9,7 +9,7 @@
 | Workspace `photos for use` | ✅ |
 | FFmpeg + Sharp | ✅ |
 | Electron + Web + CLI builds | ✅ |
-| E2E (26 checks, subset + MP4 + both + pix_fmt) | ✅ |
+| E2E (27 checks, crossfade + pix_fmt) | ✅ |
 | Consistency audit | ✅ `npm run audit:consistency` |
 
 Re-verify anytime: `npm run elite:approve`  

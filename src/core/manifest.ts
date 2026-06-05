@@ -82,7 +82,7 @@ SPECS:
 - Resolution: ${preset.width}x${preset.height}
 - Default slide duration: ${preset.slideDurationSeconds}s (MP4 uses per-photo overrides from manifest sequence when set)
 - JPEG folder: Samsung TV uses its own slideshow timing — per-card seconds apply to MP4 only
-- Transitions: ${preset.transition} (MP4 only; folder export is instant cuts)
+- Transitions: ${preset.transition === "crossfade" ? "crossfade (inter-slide blend, MP4)" : preset.transition} (MP4 only; folder export is instant cuts)
 - Video: H.264 High L4.1, yuv420p, ${preset.fps}fps
 `;
 }
