@@ -21,6 +21,7 @@ Ensure `data.ok === true` and FFmpeg is installed before MP4 exports.
 | [ELITE_DEV_HANDOFF.md](./docs/ELITE_DEV_HANDOFF.md) | Onboarding + phase roadmap |
 | [E2E_MAP.md](./E2E_MAP.md) | Understanding full pipeline |
 | [PIPELINE.md](./docs/PIPELINE.md) | Export stage details |
+| [TV_VALIDATION.md](./docs/TV_VALIDATION.md) | Samsung USB + tv-probe checks |
 | [METADATA_CONVENTIONS.md](./docs/METADATA_CONVENTIONS.md) | Reading `@meta` blocks in source |
 
 ## Elite approval
